@@ -1,32 +1,56 @@
-# CaptureCue
+<p align="center">
+  <img width="72" alt="CaptureCue app icon" src="https://github.com/user-attachments/assets/ab90875f-4092-4ca9-b475-9a60b9c6445a" />
+</p>
 
-CaptureCue is a native macOS screenshot, recording, and lightweight editing tool.
+# <p align="center">CaptureCue</p>
 
-## MVP
+> A minimal macOS capture studio for polished screenshots, demo videos, and GIFs.
 
-- CleanShot-style screenshot capture from hotkeys and the menu bar.
-- Quick post-capture bubble for copy, save, pin, and markup.
-- Recent capture tray with optional image markup.
-- Marked-up screenshots can be used as Studio references.
-- Studio recording flow with source selection, record/stop, timeline, and export.
-- Local-first storage under Application Support and Movies.
+CaptureCue is being rebuilt around one simple idea: capture should feel instant,
+quiet, and out of the way, then the editor should help turn the result into a
+clean shareable demo without a heavy production workflow.
 
-## Run
+## Direction
+
+- **Minimal capture launcher:** a lightweight radial capture menu for screenshot,
+  window, area, screen recording, and GIF/demo capture.
+- **Fast demo polish:** cursor zooms, trim, background framing, captions, camera,
+  audio, and export controls focused on quick product demos.
+- **Screenshot utility layer:** annotations, redaction, numbered steps, copy,
+  save, pin, and drag-out export will be folded in from earlier prototypes.
+- **Local-first workflow:** recordings, screenshots, and editing data stay on the
+  Mac by default.
+
+## Current Starting Point
+
+This baseline is derived from the open-source Reframed macOS recorder/editor and
+has been rebranded as CaptureCue so we can build the final product in one repo.
+
+The next major product task is replacing the existing toolbar-style capture
+entry with CaptureCue's radial launcher and trimming the editor down to the
+features that support fast polished demos.
+
+## Requirements
+
+- macOS 15.0 or later
+- Screen Recording permission
+- Accessibility permission
+- Microphone permission for voice capture
+- Camera permission for webcam overlay
+
+## Build
 
 ```bash
-./script/build_and_run.sh
+make build
 ```
 
-## Test
+Run a local debug build:
 
 ```bash
-swift test
+make dev
 ```
 
-## Package
+## Attribution
 
-```bash
-./script/package_dmg.sh
-```
-
-The app needs macOS Screen Recording access for screenshots and recordings. Camera and microphone support still exist under the hood for later Studio expansion, but they are not part of the first visible MVP path.
+CaptureCue starts from Reframed by Jan Kuri. See `NOTICE.md` and `LICENSE` for
+upstream attribution and license details.

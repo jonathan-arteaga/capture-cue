@@ -1,0 +1,147 @@
+import SwiftUI
+
+enum ButtonSize {
+  case small
+  case medium
+  case large
+
+  var height: CGFloat {
+    switch self {
+    case .small: 30
+    case .medium: 32
+    case .large: 48
+    }
+  }
+
+  var horizontalPadding: CGFloat {
+    switch self {
+    case .small: 18
+    case .medium: 20
+    case .large: 24
+    }
+  }
+
+  var cornerRadius: CGFloat {
+    switch self {
+    case .small: Radius.md
+    case .medium: Radius.md
+    case .large: Radius.xl
+    }
+  }
+
+  var fontSize: CGFloat {
+    switch self {
+    case .small: FontSize.xs
+    case .medium: FontSize.xs
+    case .large: FontSize.sm
+    }
+  }
+
+  var fontWeight: Font.Weight {
+    switch self {
+    case .small: .semibold
+    case .medium: .semibold
+    case .large: .semibold
+    }
+  }
+}
+
+struct PrimaryButtonStyle: ButtonStyle {
+  var size: ButtonSize = .small
+  var fullWidth: Bool = false
+  var forceLightMode: Bool = false
+
+  @Environment(\.isEnabled) private var isEnabled
+  @Environment(\.colorScheme) private var colorScheme
+
+  func makeBody(configuration: Configuration) -> some View {
+    let _ = colorScheme
+    let bg = forceLightMode ? Color(white: 0.09) : CaptureCueColors.primary
+    let fg = forceLightMode ? Color.white : CaptureCueColors.primaryForeground
+    configuration.label
+      .font(.system(size: size.fontSize, weight: size.fontWeight))
+      .foregroundStyle(fg)
+      .padding(.horizontal, fullWidth ? 0 : size.horizontalPadding)
+      .frame(maxWidth: fullWidth ? .infinity : nil)
+      .frame(height: size.height)
+      .background(configuration.isPressed ? bg.opacity(0.8) : bg)
+      .clipShape(RoundedRectangle(cornerRadius: size.cornerRadius))
+      .opacity(isEnabled ? 1.0 : 0.5)
+      .hoverEffect(hoverColor: bg.opacity(0.85), cornerRadius: size.cornerRadius)
+  }
+}
+
+struct SecondaryButtonStyle: ButtonStyle {
+  var size: ButtonSize = .small
+  var forceLightMode: Bool = false
+
+  @Environment(\.isEnabled) private var isEnabled
+  @Environment(\.colorScheme) private var colorScheme
+
+  func makeBody(configuration: Configuration) -> some View {
+    let _ = colorScheme
+    let fg = forceLightMode ? Color(white: 0.09) : CaptureCueColors.primaryText
+    let bg = forceLightMode ? Color.black.opacity(0.06) : CaptureCueColors.buttonBackground
+    let pressed = forceLightMode ? Color.black.opacity(0.1) : CaptureCueColors.buttonPressed
+    let hover = forceLightMode ? Color.black.opacity(0.04) : CaptureCueColors.muted
+    configuration.label
+      .font(.system(size: size.fontSize, weight: size.fontWeight))
+      .foregroundStyle(fg)
+      .padding(.horizontal, size.horizontalPadding)
+      .frame(height: size.height)
+      .background(configuration.isPressed ? pressed : bg)
+      .clipShape(RoundedRectangle(cornerRadius: size.cornerRadius))
+      .opacity(isEnabled ? 1.0 : 0.4)
+      .hoverEffect(hoverColor: hover)
+  }
+}
+
+struct OutlineButtonStyle: ButtonStyle {
+  var size: ButtonSize = .small
+  var fullWidth: Bool = false
+
+  @Environment(\.isEnabled) private var isEnabled
+  @Environment(\.colorScheme) private var colorScheme
+
+  func makeBody(configuration: Configuration) -> some View {
+    let _ = colorScheme
+    configuration.label
+      .font(.system(size: size.fontSize, weight: size.fontWeight))
+      .foregroundStyle(CaptureCueColors.primaryText)
+      .padding(.horizontal, fullWidth ? 0 : size.horizontalPadding)
+      .frame(maxWidth: fullWidth ? .infinity : nil)
+      .frame(height: size.height)
+      .background(configuration.isPressed ? CaptureCueColors.muted : Color.clear)
+      .clipShape(RoundedRectangle(cornerRadius: size.cornerRadius))
+      .overlay(
+        RoundedRectangle(cornerRadius: size.cornerRadius)
+          .strokeBorder(CaptureCueColors.border, lineWidth: 1)
+      )
+      .opacity(isEnabled ? 1.0 : 0.4)
+      .hoverEffect(hoverColor: CaptureCueColors.accent)
+  }
+}
+
+struct PlainCustomButtonStyle: ButtonStyle {
+  func makeBody(configuration: Configuration) -> some View {
+    configuration.label
+  }
+}
+
+private struct HoverEffectModifier: ViewModifier {
+  let hoverColor: Color
+  var cornerRadius: CGFloat = Radius.md
+  @State private var isHovered = false
+
+  func body(content: Content) -> some View {
+    content
+      .background(isHovered ? hoverColor : Color.clear, in: RoundedRectangle(cornerRadius: cornerRadius))
+      .onHover { isHovered = $0 }
+  }
+}
+
+extension View {
+  func hoverEffect(hoverColor: Color, cornerRadius: CGFloat = Radius.md) -> some View {
+    modifier(HoverEffectModifier(hoverColor: hoverColor, cornerRadius: cornerRadius))
+  }
+}
