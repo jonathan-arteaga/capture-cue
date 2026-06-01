@@ -1,5 +1,5 @@
 import AppKit
-@testable import astro_lens
+@testable import CaptureCue
 import XCTest
 
 @MainActor
@@ -156,7 +156,7 @@ final class CaptureWorkflowTests: XCTestCase {
 
     private func temporaryDirectory(named name: String) -> URL {
         let url = FileManager.default.temporaryDirectory
-            .appendingPathComponent("astro_lensTests-\(name)-\(UUID().uuidString)", isDirectory: true)
+            .appendingPathComponent("CaptureCueTests-\(name)-\(UUID().uuidString)", isDirectory: true)
         addTeardownBlock {
             try? FileManager.default.removeItem(at: url)
         }

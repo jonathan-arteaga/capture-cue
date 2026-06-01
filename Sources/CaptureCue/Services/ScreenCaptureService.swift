@@ -34,7 +34,7 @@ final class ScreenCaptureService: NSObject {
     @ObservationIgnored private var recordingFinalized = false
     @ObservationIgnored private let interactionTelemetry = InteractionTelemetryService()
     @ObservationIgnored private let recordingWriter = ScreenRecordingWriter()
-    @ObservationIgnored private let sampleQueue = DispatchQueue(label: "com.salesforce.internal.astro-lens.capture")
+    @ObservationIgnored private let sampleQueue = DispatchQueue(label: "com.jonathanarteaga.CaptureCue.capture")
 
     var selectedSource: CaptureSource? {
         guard let selectedSourceID else {
@@ -205,7 +205,7 @@ final class ScreenCaptureService: NSObject {
                 self?.refreshMicrophones()
                 if !granted {
                     self?.audioOptions.includeMicrophone = false
-                    self?.lastError = "macOS has not granted Microphone access to astro-lens."
+                    self?.lastError = "macOS has not granted Microphone access to CaptureCue."
                 }
             }
         }
@@ -353,11 +353,11 @@ final class ScreenCaptureService: NSObject {
 
     private func makeRecordingURL(fileExtension: String) throws -> URL {
         let moviesDirectory = FileManager.default.urls(for: .moviesDirectory, in: .userDomainMask)[0]
-        let directory = moviesDirectory.appending(path: "astro-lens", directoryHint: .isDirectory)
+        let directory = moviesDirectory.appending(path: "CaptureCue", directoryHint: .isDirectory)
         try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
 
         let timestamp = String(Int(Date.now.timeIntervalSince1970))
-        return directory.appending(path: "astro-lens-\(timestamp).\(fileExtension)")
+        return directory.appending(path: "CaptureCue-\(timestamp).\(fileExtension)")
     }
 
     private func finalizeRecording(fileSize: Int64, duration: TimeInterval) {
@@ -454,7 +454,7 @@ private final class ScreenRecordingWriter: @unchecked Sendable {
         var duration: TimeInterval
     }
 
-    private let queue = DispatchQueue(label: "com.salesforce.internal.astro-lens.screen-writer")
+    private let queue = DispatchQueue(label: "com.jonathanarteaga.CaptureCue.screen-writer")
     private var outputURL: URL?
     private var width = 1280
     private var height = 720

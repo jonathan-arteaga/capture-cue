@@ -1,5 +1,5 @@
 import XCTest
-@testable import astro_lens
+@testable import CaptureCue
 
 final class AutoPolishServiceTests: XCTestCase {
     func testClickEventsCreateFocusAwareZoomAndCursorClips() {
@@ -170,7 +170,7 @@ final class AutoPolishServiceTests: XCTestCase {
                     start: 0,
                     duration: 10,
                     kind: .recording,
-                    assetURL: URL(fileURLWithPath: "/tmp/missing-astrolens-recording.mov")
+                    assetURL: URL(fileURLWithPath: "/tmp/missing-capturecue-recording.mov")
                 )
             ],
             notes: ""
@@ -481,7 +481,7 @@ final class AutoPolishServiceTests: XCTestCase {
 
     private func temporaryPersistence() -> ProjectPersistence {
         let directory = FileManager.default.temporaryDirectory
-            .appending(path: "astro_lensTests-\(UUID().uuidString)", directoryHint: .isDirectory)
+            .appending(path: "CaptureCueTests-\(UUID().uuidString)", directoryHint: .isDirectory)
         return ProjectPersistence(appSupportDirectory: directory)
     }
 }

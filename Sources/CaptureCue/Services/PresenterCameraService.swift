@@ -65,7 +65,7 @@ final class PresenterCameraService: NSObject {
                     self?.startPreviewIfNeeded()
                 } else {
                     self?.options.isEnabled = false
-                    self?.lastError = "macOS has not granted Camera access to astro-lens."
+                    self?.lastError = "macOS has not granted Camera access to CaptureCue."
                 }
             }
         }
@@ -153,7 +153,7 @@ final class PresenterCameraService: NSObject {
                 configuredDeviceID = deviceID
                 lastError = nil
             } else {
-                lastError = "astro-lens could not use the selected camera."
+                lastError = "CaptureCue could not use the selected camera."
             }
         } catch {
             lastError = error.localizedDescription
@@ -204,14 +204,14 @@ final class PresenterCameraService: NSObject {
 
     private func makePresenterRecordingURL() throws -> URL {
         let moviesDirectory = FileManager.default.urls(for: .moviesDirectory, in: .userDomainMask)[0]
-        let directory = moviesDirectory.appending(path: "astro-lens/Presenter", directoryHint: .isDirectory)
+        let directory = moviesDirectory.appending(path: "CaptureCue/Presenter", directoryHint: .isDirectory)
         try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
         return directory.appending(path: "Presenter-\(Int(Date.now.timeIntervalSince1970)).mov")
     }
 }
 
 private final class PresenterVideoRecorder: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, @unchecked Sendable {
-    let queue = DispatchQueue(label: "com.salesforce.internal.astro-lens.presenter-recorder")
+    let queue = DispatchQueue(label: "com.jonathanarteaga.CaptureCue.presenter-recorder")
 
     private(set) var isRecording = false
     private var outputURL: URL?

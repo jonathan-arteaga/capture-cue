@@ -10,6 +10,6 @@ extension String {
             .trimmingCharacters(in: .whitespacesAndNewlines)
             .replacingOccurrences(of: " ", with: "-")
 
-        return cleaned.isEmpty ? "astro-lens" : cleaned
+        return cleaned.isEmpty ? "CaptureCue" : cleaned
     }
 }

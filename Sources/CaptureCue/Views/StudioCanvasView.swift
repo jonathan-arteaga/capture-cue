@@ -16,8 +16,8 @@ struct StudioCanvasView: View {
             LinearGradient(
                 colors: [
                     .white.opacity(0.70),
-                    AstroTheme.aqua.opacity(0.10),
-                    AstroTheme.amber.opacity(0.08)
+                    CaptureCueTheme.aqua.opacity(0.10),
+                    CaptureCueTheme.amber.opacity(0.08)
                 ],
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
@@ -45,7 +45,7 @@ struct StudioCanvasView: View {
             RoundedRectangle(cornerRadius: 8, style: .continuous)
                 .stroke(.white.opacity(0.55), lineWidth: 1)
         }
-        .shadow(color: AstroTheme.ink.opacity(0.10), radius: 24, y: 14)
+        .shadow(color: CaptureCueTheme.ink.opacity(0.10), radius: 24, y: 14)
     }
 }
 
@@ -65,7 +65,7 @@ private struct PreviewStage: View {
 
                 ZStack {
                     RoundedRectangle(cornerRadius: 8, style: .continuous)
-                        .fill(AstroTheme.ink)
+                        .fill(CaptureCueTheme.ink)
 
                     PreviewContent(project: project, captureService: captureService, presenterService: presenterService)
                         .padding(18)
@@ -82,7 +82,7 @@ private struct PreviewStage: View {
             RoundedRectangle(cornerRadius: 8, style: .continuous)
                 .stroke(.white.opacity(0.28), lineWidth: 1)
         }
-        .shadow(color: AstroTheme.ink.opacity(0.22), radius: 30, y: 18)
+        .shadow(color: CaptureCueTheme.ink.opacity(0.22), radius: 30, y: 18)
     }
 }
 
@@ -94,17 +94,17 @@ private struct ModernPermissionBanner: View {
         HStack(spacing: 12) {
             Image(systemName: symbolName)
                 .font(.system(size: 17, weight: .semibold))
-                .foregroundStyle(AstroTheme.amber)
+                .foregroundStyle(CaptureCueTheme.amber)
                 .frame(width: 36, height: 36)
-                .background(AstroTheme.amber.opacity(0.12), in: RoundedRectangle(cornerRadius: 8, style: .continuous))
+                .background(CaptureCueTheme.amber.opacity(0.12), in: RoundedRectangle(cornerRadius: 8, style: .continuous))
 
             VStack(alignment: .leading, spacing: 3) {
                 Text(suggestion.title)
                     .font(.system(size: 13, weight: .bold))
-                    .foregroundStyle(AstroTheme.ink)
+                    .foregroundStyle(CaptureCueTheme.ink)
                 Text(suggestion.detail)
                     .font(.system(size: 11, weight: .medium))
-                    .foregroundStyle(AstroTheme.ink.opacity(0.52))
+                    .foregroundStyle(CaptureCueTheme.ink.opacity(0.52))
                     .lineLimit(2)
             }
 
@@ -116,19 +116,19 @@ private struct ModernPermissionBanner: View {
                         await captureService.recoverCaptureSetup()
                     }
                 }
-                .buttonStyle(AstroSecondaryButtonStyle())
+                .buttonStyle(CaptureCueSecondaryButtonStyle())
             }
 
             Button(suggestion.primaryActionTitle) {
                 performPrimaryAction()
             }
-            .buttonStyle(AstroPrimaryButtonStyle(color: AstroTheme.amber))
+            .buttonStyle(CaptureCuePrimaryButtonStyle(color: CaptureCueTheme.amber))
         }
         .padding(10)
         .background(.white.opacity(0.76), in: RoundedRectangle(cornerRadius: 8, style: .continuous))
         .overlay {
             RoundedRectangle(cornerRadius: 8, style: .continuous)
-                .stroke(AstroTheme.amber.opacity(0.26), lineWidth: 1)
+                .stroke(CaptureCueTheme.amber.opacity(0.26), lineWidth: 1)
         }
     }
 
@@ -165,9 +165,9 @@ private struct PreviewChrome: View {
 
     var body: some View {
         HStack(spacing: 8) {
-            Circle().fill(AstroTheme.coral).frame(width: 9, height: 9)
-            Circle().fill(AstroTheme.amber).frame(width: 9, height: 9)
-            Circle().fill(AstroTheme.mint).frame(width: 9, height: 9)
+            Circle().fill(CaptureCueTheme.coral).frame(width: 9, height: 9)
+            Circle().fill(CaptureCueTheme.amber).frame(width: 9, height: 9)
+            Circle().fill(CaptureCueTheme.mint).frame(width: 9, height: 9)
 
             Text(project.title)
                 .font(.system(size: 11, weight: .bold))
@@ -316,7 +316,7 @@ private struct ModernPreviewPlaceholder: View {
                     .stroke(.white.opacity(0.20), lineWidth: 1)
                     .frame(width: 270, height: 160)
                 RoundedRectangle(cornerRadius: 8, style: .continuous)
-                    .fill(AstroTheme.brandWash)
+                    .fill(CaptureCueTheme.brandWash)
                     .frame(width: 230, height: 126)
                 LogoMark(size: 42)
             }
@@ -584,11 +584,11 @@ private struct RecordingDock: View {
                         .lineLimit(1)
                     Image(systemName: "chevron.up.chevron.down")
                         .font(.system(size: 9, weight: .bold))
-                        .foregroundStyle(AstroTheme.ink.opacity(0.36))
+                        .foregroundStyle(CaptureCueTheme.ink.opacity(0.36))
                 }
                 .frame(maxWidth: 260, alignment: .leading)
             }
-            .buttonStyle(AstroSecondaryButtonStyle())
+            .buttonStyle(CaptureCueSecondaryButtonStyle())
 
             Button {
                 Task {
@@ -597,7 +597,7 @@ private struct RecordingDock: View {
             } label: {
                 Image(systemName: "arrow.clockwise")
             }
-            .buttonStyle(AstroIconButtonStyle())
+            .buttonStyle(CaptureCueIconButtonStyle())
             .help("Refresh capture sources")
 
             Spacer()
@@ -609,7 +609,7 @@ private struct RecordingDock: View {
                         await captureService.refreshSources()
                     }
                 }
-                .buttonStyle(AstroSecondaryButtonStyle())
+                .buttonStyle(CaptureCueSecondaryButtonStyle())
             }
 
             Button {
@@ -622,7 +622,7 @@ private struct RecordingDock: View {
                     systemImage: captureService.sessionState.isActive ? "stop.fill" : "record.circle"
                 )
             }
-            .buttonStyle(AstroPrimaryButtonStyle(color: captureService.sessionState.isActive ? AstroTheme.coral : AstroTheme.aqua))
+            .buttonStyle(CaptureCuePrimaryButtonStyle(color: captureService.sessionState.isActive ? CaptureCueTheme.coral : CaptureCueTheme.aqua))
             .disabled(captureService.sessionState == .preparing || captureService.sessionState == .stopping || (!captureService.sessionState.isActive && !canStartRecording))
         }
         .padding(10)
@@ -639,18 +639,18 @@ private struct CanvasBackdrop: View {
             LinearGradient(
                 colors: [
                     Color(red: 0.035, green: 0.06, blue: 0.12),
-                    AstroTheme.aqua.opacity(0.32),
+                    CaptureCueTheme.aqua.opacity(0.32),
                     Color(red: 0.52, green: 0.70, blue: 0.95).opacity(0.28)
                 ],
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
             )
         case .graphite:
-            LinearGradient(colors: [AstroTheme.ink, Color(red: 0.22, green: 0.24, blue: 0.26)], startPoint: .top, endPoint: .bottom)
+            LinearGradient(colors: [CaptureCueTheme.ink, Color(red: 0.22, green: 0.24, blue: 0.26)], startPoint: .top, endPoint: .bottom)
         case .cloud:
-            LinearGradient(colors: [.white.opacity(0.72), AstroTheme.aqua.opacity(0.18), AstroTheme.mint.opacity(0.20)], startPoint: .topLeading, endPoint: .bottomTrailing)
+            LinearGradient(colors: [.white.opacity(0.72), CaptureCueTheme.aqua.opacity(0.18), CaptureCueTheme.mint.opacity(0.20)], startPoint: .topLeading, endPoint: .bottomTrailing)
         case .focus:
-            LinearGradient(colors: [AstroTheme.midnight, AstroTheme.amber.opacity(0.18), AstroTheme.aqua.opacity(0.22)], startPoint: .topLeading, endPoint: .bottomTrailing)
+            LinearGradient(colors: [CaptureCueTheme.midnight, CaptureCueTheme.amber.opacity(0.18), CaptureCueTheme.aqua.opacity(0.22)], startPoint: .topLeading, endPoint: .bottomTrailing)
         }
     }
 }

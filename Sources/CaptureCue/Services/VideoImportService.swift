@@ -52,7 +52,7 @@ struct VideoImportService: VideoImporting, @unchecked Sendable {
         }
 
         let moviesDirectory = fileManager.urls(for: .moviesDirectory, in: .userDomainMask)[0]
-        let directory = moviesDirectory.appending(path: "astro-lens/Imports", directoryHint: .isDirectory)
+        let directory = moviesDirectory.appending(path: "CaptureCue/Imports", directoryHint: .isDirectory)
         try fileManager.createDirectory(at: directory, withIntermediateDirectories: true)
         return directory
     }

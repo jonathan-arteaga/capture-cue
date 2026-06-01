@@ -1,7 +1,7 @@
 import Foundation
 
 struct AutoPolishService {
-    static let generatorID = "astrolens.auto-polish.v1"
+    static let generatorID = "capturecue.auto-polish.v1"
 
     func suggestions(for recordingClip: StudioClip, intensity: Double) -> [StudioClip] {
         let events = (recordingClip.interactionEvents ?? [])

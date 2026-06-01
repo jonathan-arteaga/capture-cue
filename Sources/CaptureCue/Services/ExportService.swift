@@ -156,7 +156,7 @@ struct ExportService: Sendable {
     private func exportURL(for project: StudioProject, format: ExportFormat) throws -> URL {
         let fileManager = FileManager.default
         let moviesDirectory = fileManager.urls(for: .moviesDirectory, in: .userDomainMask)[0]
-        let exportDirectory = moviesDirectory.appending(path: "astro-lens/Exports", directoryHint: .isDirectory)
+        let exportDirectory = moviesDirectory.appending(path: "CaptureCue/Exports", directoryHint: .isDirectory)
         try fileManager.createDirectory(at: exportDirectory, withIntermediateDirectories: true)
 
         let fileName = [
@@ -509,7 +509,7 @@ struct ExportService: Sendable {
         layer.addSublayer(titleLayer)
 
         let badgeLayer = CATextLayer()
-        badgeLayer.string = "astro-lens"
+        badgeLayer.string = "CaptureCue"
         badgeLayer.font = NSFont.monospacedSystemFont(ofSize: 18, weight: .medium)
         badgeLayer.fontSize = 18
         badgeLayer.foregroundColor = NSColor.white.withAlphaComponent(0.72).cgColor
@@ -739,7 +739,7 @@ enum ExportServiceError: LocalizedError {
         case .noVideoTrack:
             "The recording does not contain a video track."
         case .compositionFailed:
-            "astro-lens could not prepare the export composition."
+            "CaptureCue could not prepare the export composition."
         case .exportSessionUnavailable:
             "macOS could not create a movie export session."
         case .exportFailed:

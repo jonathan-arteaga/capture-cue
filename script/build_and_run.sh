@@ -2,8 +2,8 @@
 set -euo pipefail
 
 MODE="${1:-run}"
-APP_NAME="astro-lens"
-BUNDLE_ID="com.salesforce.internal.astro-lens"
+APP_NAME="CaptureCue"
+BUNDLE_ID="com.jonathanarteaga.CaptureCue"
 MIN_SYSTEM_VERSION="15.0"
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -14,11 +14,11 @@ APP_MACOS="$APP_CONTENTS/MacOS"
 APP_RESOURCES="$APP_CONTENTS/Resources"
 APP_BINARY="$APP_MACOS/$APP_NAME"
 INFO_PLIST="$APP_CONTENTS/Info.plist"
-ENTITLEMENTS="$ROOT_DIR/astro-lens.entitlements"
+ENTITLEMENTS="$ROOT_DIR/CaptureCue.entitlements"
 
 default_sign_identity() {
-  if [ -n "${ASTRO_LENS_CODE_SIGN_IDENTITY:-}" ]; then
-    printf '%s\n' "$ASTRO_LENS_CODE_SIGN_IDENTITY"
+  if [ -n "${CAPTURE_CUE_CODE_SIGN_IDENTITY:-}" ]; then
+    printf '%s\n' "$CAPTURE_CUE_CODE_SIGN_IDENTITY"
     return
   fi
 
@@ -63,9 +63,9 @@ cat >"$INFO_PLIST" <<PLIST
   <key>CFBundleName</key>
   <string>$APP_NAME</string>
   <key>CFBundleDisplayName</key>
-  <string>astro-lens</string>
+  <string>CaptureCue</string>
   <key>CFBundleIconFile</key>
-  <string>astro-lens</string>
+  <string>CaptureCue</string>
   <key>CFBundlePackageType</key>
   <string>APPL</string>
   <key>CFBundleShortVersionString</key>
@@ -77,11 +77,11 @@ cat >"$INFO_PLIST" <<PLIST
   <key>NSPrincipalClass</key>
   <string>NSApplication</string>
   <key>NSCameraUsageDescription</key>
-  <string>astro-lens can include camera video in recordings when you enable presenter mode.</string>
+  <string>CaptureCue can include camera video in recordings when you enable presenter mode.</string>
   <key>NSMicrophoneUsageDescription</key>
-  <string>astro-lens can record narration when you enable microphone audio.</string>
+  <string>CaptureCue can record narration when you enable microphone audio.</string>
   <key>NSScreenCaptureUsageDescription</key>
-  <string>astro-lens records selected screens and windows so you can create polished product demos.</string>
+  <string>CaptureCue records selected screens and windows so you can create polished product demos.</string>
 </dict>
 </plist>
 PLIST

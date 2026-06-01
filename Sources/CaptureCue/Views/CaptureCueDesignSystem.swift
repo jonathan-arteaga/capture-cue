@@ -1,6 +1,6 @@
 import SwiftUI
 
-enum AstroTheme {
+enum CaptureCueTheme {
     static let ink = Color(red: 0.035, green: 0.055, blue: 0.12)
     static let midnight = Color(red: 0.075, green: 0.095, blue: 0.16)
     static let panel = Color(red: 0.965, green: 0.972, blue: 0.98)
@@ -38,9 +38,9 @@ enum AstroTheme {
     static var brandWash: some ShapeStyle {
         LinearGradient(
             colors: [
-                AstroTheme.aqua.opacity(0.28),
+                CaptureCueTheme.aqua.opacity(0.28),
                 Color(red: 0.52, green: 0.70, blue: 0.95).opacity(0.18),
-                AstroTheme.mint.opacity(0.22)
+                CaptureCueTheme.mint.opacity(0.22)
             ],
             startPoint: .topLeading,
             endPoint: .bottomTrailing
@@ -59,7 +59,7 @@ struct GlassPanel: ViewModifier {
                 RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
                     .stroke(.white.opacity(strokeOpacity), lineWidth: 1)
             }
-            .shadow(color: AstroTheme.ink.opacity(0.10), radius: 22, y: 14)
+            .shadow(color: CaptureCueTheme.ink.opacity(0.10), radius: 22, y: 14)
     }
 }
 
@@ -68,37 +68,37 @@ struct SoftPanel: ViewModifier {
 
     func body(content: Content) -> some View {
         content
-            .background(AstroTheme.paper.opacity(0.82), in: RoundedRectangle(cornerRadius: cornerRadius, style: .continuous))
+            .background(CaptureCueTheme.paper.opacity(0.82), in: RoundedRectangle(cornerRadius: cornerRadius, style: .continuous))
             .overlay {
                 RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-                    .stroke(AstroTheme.line, lineWidth: 1)
+                    .stroke(CaptureCueTheme.line, lineWidth: 1)
             }
-            .shadow(color: AstroTheme.ink.opacity(0.06), radius: 16, y: 8)
+            .shadow(color: CaptureCueTheme.ink.opacity(0.06), radius: 16, y: 8)
     }
 }
 
-struct AstroIconButtonStyle: ButtonStyle {
+struct CaptureCueIconButtonStyle: ButtonStyle {
     var isSelected = false
 
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .font(.system(size: 14, weight: .semibold))
-            .foregroundStyle(isSelected ? .white : AstroTheme.ink.opacity(0.74))
+            .foregroundStyle(isSelected ? .white : CaptureCueTheme.ink.opacity(0.74))
             .frame(width: 34, height: 34)
             .background {
                 RoundedRectangle(cornerRadius: 8, style: .continuous)
-                    .fill(isSelected ? AnyShapeStyle(AstroTheme.ink) : AnyShapeStyle(.white.opacity(configuration.isPressed ? 0.55 : 0.72)))
+                    .fill(isSelected ? AnyShapeStyle(CaptureCueTheme.ink) : AnyShapeStyle(.white.opacity(configuration.isPressed ? 0.55 : 0.72)))
             }
             .overlay {
                 RoundedRectangle(cornerRadius: 8, style: .continuous)
-                    .stroke(isSelected ? AstroTheme.aqua.opacity(0.55) : AstroTheme.line, lineWidth: 1)
+                    .stroke(isSelected ? CaptureCueTheme.aqua.opacity(0.55) : CaptureCueTheme.line, lineWidth: 1)
             }
             .scaleEffect(configuration.isPressed ? 0.97 : 1)
     }
 }
 
-struct AstroPrimaryButtonStyle: ButtonStyle {
-    var color: Color = AstroTheme.ink
+struct CaptureCuePrimaryButtonStyle: ButtonStyle {
+    var color: Color = CaptureCueTheme.ink
 
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
@@ -115,17 +115,17 @@ struct AstroPrimaryButtonStyle: ButtonStyle {
     }
 }
 
-struct AstroSecondaryButtonStyle: ButtonStyle {
+struct CaptureCueSecondaryButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .font(.system(size: 13, weight: .semibold))
-            .foregroundStyle(AstroTheme.ink.opacity(0.78))
+            .foregroundStyle(CaptureCueTheme.ink.opacity(0.78))
             .padding(.horizontal, 12)
             .frame(height: 34)
             .background(.white.opacity(configuration.isPressed ? 0.48 : 0.68), in: RoundedRectangle(cornerRadius: 8, style: .continuous))
             .overlay {
                 RoundedRectangle(cornerRadius: 8, style: .continuous)
-                    .stroke(AstroTheme.line, lineWidth: 1)
+                    .stroke(CaptureCueTheme.line, lineWidth: 1)
             }
     }
 }

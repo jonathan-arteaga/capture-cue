@@ -10,7 +10,7 @@ struct ProjectPersistence {
             self.appSupportDirectory = appSupportDirectory
         } else {
             let baseDirectory = fileManager.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
-            self.appSupportDirectory = baseDirectory.appending(path: "astro-lens", directoryHint: .isDirectory)
+            self.appSupportDirectory = baseDirectory.appending(path: "CaptureCue", directoryHint: .isDirectory)
         }
     }
 

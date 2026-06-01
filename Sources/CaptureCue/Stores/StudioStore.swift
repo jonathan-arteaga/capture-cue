@@ -406,7 +406,7 @@ final class StudioStore {
         } else {
             let baseDirectory = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
             directory = baseDirectory
-                .appending(path: "astro-lens", directoryHint: .isDirectory)
+                .appending(path: "CaptureCue", directoryHint: .isDirectory)
                 .appending(path: "StudioSnapshots", directoryHint: .isDirectory)
         }
         try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)

@@ -2,7 +2,7 @@ import AppKit
 import SwiftUI
 
 @main
-struct astro_lensApp: App {
+struct CaptureCueApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
 
     @State private var store = StudioStore()
@@ -11,7 +11,7 @@ struct astro_lensApp: App {
     @State private var presenterService = PresenterCameraService()
 
     var body: some Scene {
-        WindowGroup("astro-lens", id: "studio") {
+        WindowGroup("CaptureCue", id: "studio") {
             ContentView(
                 store: store,
                 captureService: captureService,
@@ -123,7 +123,7 @@ struct astro_lensApp: App {
             }
         }
 
-        MenuBarExtra("astro-lens", systemImage: "camera.viewfinder") {
+        MenuBarExtra("CaptureCue", systemImage: "camera.viewfinder") {
             Button("Capture Area") {
                 Task { await captureStore.captureArea() }
             }
@@ -188,7 +188,7 @@ struct astro_lensApp: App {
         let alert = NSAlert()
         alert.alertStyle = .warning
         alert.messageText = "Delete Project?"
-        alert.informativeText = "Delete \"\(project.title)\" from astro-lens? Recording files on disk will not be deleted."
+        alert.informativeText = "Delete \"\(project.title)\" from CaptureCue? Recording files on disk will not be deleted."
         alert.addButton(withTitle: "Delete")
         alert.addButton(withTitle: "Cancel")
 

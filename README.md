@@ -1,6 +1,6 @@
-# astro-lens
+# CaptureCue
 
-astro-lens is a native macOS screenshot, recording, and lightweight editing tool.
+CaptureCue is a native macOS screenshot, recording, and lightweight editing tool.
 
 ## MVP
 

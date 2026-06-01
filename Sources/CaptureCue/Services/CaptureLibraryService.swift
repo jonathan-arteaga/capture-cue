@@ -7,7 +7,7 @@ struct CaptureLibraryService {
         let appSupport = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first
             ?? FileManager.default.temporaryDirectory
         return appSupport
-            .appendingPathComponent("astro-lens", isDirectory: true)
+            .appendingPathComponent("CaptureCue", isDirectory: true)
             .appendingPathComponent("Captures", isDirectory: true)
     }
 

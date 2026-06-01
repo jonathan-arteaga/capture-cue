@@ -62,6 +62,6 @@ struct LogoMark: View {
             )
         }
         .frame(width: size, height: size)
-        .accessibilityLabel("astro-lens")
+        .accessibilityLabel("CaptureCue")
     }
 }

@@ -5,8 +5,8 @@ import Foundation
 
 let rootURL = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
 let resourcesURL = rootURL.appending(path: "Resources", directoryHint: .isDirectory)
-let iconsetURL = resourcesURL.appending(path: "astro-lens.iconset", directoryHint: .isDirectory)
-let icnsURL = resourcesURL.appending(path: "astro-lens.icns")
+let iconsetURL = resourcesURL.appending(path: "CaptureCue.iconset", directoryHint: .isDirectory)
+let icnsURL = resourcesURL.appending(path: "CaptureCue.icns")
 
 try? FileManager.default.removeItem(at: iconsetURL)
 try FileManager.default.createDirectory(at: iconsetURL, withIntermediateDirectories: true)
@@ -37,7 +37,7 @@ try process.run()
 process.waitUntilExit()
 
 guard process.terminationStatus == 0 else {
-    throw NSError(domain: "astro-lensIcon", code: Int(process.terminationStatus))
+    throw NSError(domain: "CaptureCueIcon", code: Int(process.terminationStatus))
 }
 
 func drawIcon(size: CGFloat) -> NSImage {
@@ -128,7 +128,7 @@ func writePNG(_ image: NSImage, to url: URL) throws {
     guard let tiffData = image.tiffRepresentation,
           let bitmap = NSBitmapImageRep(data: tiffData),
           let data = bitmap.representation(using: .png, properties: [:]) else {
-        throw NSError(domain: "astro-lensIcon", code: 1)
+        throw NSError(domain: "CaptureCueIcon", code: 1)
     }
 
     try data.write(to: url, options: [.atomic])

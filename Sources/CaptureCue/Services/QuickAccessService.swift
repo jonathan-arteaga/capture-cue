@@ -113,8 +113,8 @@ private struct QuickAccessBubbleView: View {
         .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 8, style: .continuous))
         .overlay {
             RoundedRectangle(cornerRadius: 8, style: .continuous)
-                .stroke(AstroTheme.aqua.opacity(0.24), lineWidth: 1)
+                .stroke(CaptureCueTheme.aqua.opacity(0.24), lineWidth: 1)
         }
-        .shadow(color: AstroTheme.ink.opacity(0.18), radius: 22, y: 12)
+        .shadow(color: CaptureCueTheme.ink.opacity(0.18), radius: 22, y: 12)
     }
 }

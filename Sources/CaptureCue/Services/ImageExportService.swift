@@ -303,7 +303,7 @@ struct ImageExportService {
     }
 
     private func dragExportDirectory() throws -> URL {
-        let directory = FileManager.default.temporaryDirectory.appendingPathComponent("astro-lensDragExports", isDirectory: true)
+        let directory = FileManager.default.temporaryDirectory.appendingPathComponent("CaptureCueDragExports", isDirectory: true)
         try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
         removeStaleDragExports(in: directory)
         return directory
@@ -340,7 +340,7 @@ struct ImageExportService {
         let collapsed = String(sanitizedScalars)
             .split(separator: "-", omittingEmptySubsequences: true)
             .joined(separator: "-")
-        return collapsed.isEmpty ? "astro-lens" : collapsed
+        return collapsed.isEmpty ? "CaptureCue" : collapsed
     }
 }
 

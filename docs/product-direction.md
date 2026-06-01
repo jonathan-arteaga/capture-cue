@@ -1,6 +1,6 @@
-# astro-lens Product Direction
+# CaptureCue Product Direction
 
-astro-lens is a native macOS capture studio: quick screenshots stay out of the way, while anything worth polishing can open in one focused editor. The MVP should feel closer to CleanShot X plus Screen Studio than a full editing cockpit.
+CaptureCue is a native macOS capture studio: quick screenshots stay out of the way, while anything worth polishing can open in one focused editor. The MVP should feel closer to CleanShot X plus Screen Studio than a full editing cockpit.
 
 The visual direction is native but not stock: hidden-titlebar window chrome, a soft glass capture rail, a custom command bar, a centered Studio stage, and floating editor controls. System behavior should remain macOS-native, but the surface should feel like a modern creator app rather than a settings panel.
 
@@ -38,4 +38,4 @@ The visual direction is native but not stock: hidden-titlebar window chrome, a s
 
 ## Privacy Posture
 
-astro-lens captures interaction anchors so the editor can suggest zooms, cursor emphasis, and key hints after recording. These anchors are local project metadata. Normal typed characters are not stored; ordinary keys are saved only as `Key press`, while special keys such as Return, Tab, Escape, and arrows can be named.
+CaptureCue captures interaction anchors so the editor can suggest zooms, cursor emphasis, and key hints after recording. These anchors are local project metadata. Normal typed characters are not stored; ordinary keys are saved only as `Key press`, while special keys such as Return, Tab, Escape, and arrows can be named.

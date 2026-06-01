@@ -3,17 +3,17 @@
 import PackageDescription
 
 let package = Package(
-    name: "astro-lens",
+    name: "capture-cue",
     platforms: [
         .macOS(.v15)
     ],
     products: [
-        .executable(name: "astro-lens", targets: ["astro_lens"])
+        .executable(name: "CaptureCue", targets: ["CaptureCue"])
     ],
     targets: [
         .executableTarget(
-            name: "astro_lens",
-            path: "Sources/astro-lens",
+            name: "CaptureCue",
+            path: "Sources/CaptureCue",
             resources: [
                 .process("../../Resources")
             ],
@@ -22,9 +22,9 @@ let package = Package(
             ]
         ),
         .testTarget(
-            name: "astro_lensTests",
-            dependencies: ["astro_lens"],
-            path: "Tests/astro-lens-tests"
+            name: "CaptureCueTests",
+            dependencies: ["CaptureCue"],
+            path: "Tests/CaptureCueTests"
         )
     ]
 )

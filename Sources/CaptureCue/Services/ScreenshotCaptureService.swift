@@ -10,11 +10,11 @@ enum ScreenCaptureError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .captureUnavailable:
-            "astro-lens could not capture the screen. Check Screen Recording permission in System Settings."
+            "CaptureCue could not capture the screen. Check Screen Recording permission in System Settings."
         case .invalidSelection:
             "The selected area was too small to capture."
         case .windowUnavailable:
-            "astro-lens could not find a frontmost window to capture."
+            "CaptureCue could not find a frontmost window to capture."
         }
     }
 }

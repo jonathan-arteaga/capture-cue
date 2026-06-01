@@ -10,7 +10,7 @@ struct SidebarView: View {
             HStack(spacing: 10) {
                 LogoMark(size: 26)
 
-                Text("astro-lens")
+                Text("CaptureCue")
                     .font(.headline)
 
                 Spacer()
@@ -104,7 +104,7 @@ struct SidebarView: View {
                 projectPendingDeletion = nil
             }
         } message: { project in
-            Text("Delete \"\(project.title)\" from astro-lens? Recording files on disk will not be deleted.")
+            Text("Delete \"\(project.title)\" from CaptureCue? Recording files on disk will not be deleted.")
         }
     }
 

@@ -11,7 +11,7 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .fill(AstroTheme.appBackground)
+                .fill(CaptureCueTheme.appBackground)
                 .ignoresSafeArea()
 
             HStack(spacing: 18) {
@@ -107,11 +107,11 @@ private struct TopCommandBar: View {
             VStack(alignment: .leading, spacing: 2) {
                 Text(selectedMode == .studio ? store.selectedProject.title : captureStore.selectedCapture?.name ?? "Quick capture")
                     .font(.system(size: 16, weight: .semibold))
-                    .foregroundStyle(AstroTheme.ink)
+                    .foregroundStyle(CaptureCueTheme.ink)
                     .lineLimit(1)
                 Text(statusText)
                     .font(.system(size: 11, weight: .medium))
-                    .foregroundStyle(AstroTheme.ink.opacity(0.48))
+                    .foregroundStyle(CaptureCueTheme.ink.opacity(0.48))
                     .lineLimit(1)
             }
 
@@ -125,7 +125,7 @@ private struct TopCommandBar: View {
                 } label: {
                     Image(systemName: "camera.viewfinder")
                 }
-                .buttonStyle(AstroIconButtonStyle())
+                .buttonStyle(CaptureCueIconButtonStyle())
                 .help("Capture area")
 
                 Button {
@@ -133,7 +133,7 @@ private struct TopCommandBar: View {
                 } label: {
                     Image(systemName: "macwindow.on.rectangle")
                 }
-                .buttonStyle(AstroIconButtonStyle())
+                .buttonStyle(CaptureCueIconButtonStyle())
                 .help("Capture window")
             }
 
@@ -147,7 +147,7 @@ private struct TopCommandBar: View {
                     systemImage: captureService.sessionState.isActive ? "stop.fill" : "record.circle"
                 )
             }
-            .buttonStyle(AstroPrimaryButtonStyle(color: captureService.sessionState.isActive ? AstroTheme.coral : AstroTheme.aqua))
+            .buttonStyle(CaptureCuePrimaryButtonStyle(color: captureService.sessionState.isActive ? CaptureCueTheme.coral : CaptureCueTheme.aqua))
             .disabled(recordButtonDisabled)
         }
         .padding(.horizontal, 16)
@@ -194,10 +194,10 @@ private struct WorkspaceSwitch: View {
                         .frame(height: 30)
                 }
                 .buttonStyle(.plain)
-                .foregroundStyle(selectedMode == mode ? .white : AstroTheme.ink.opacity(0.58))
+                .foregroundStyle(selectedMode == mode ? .white : CaptureCueTheme.ink.opacity(0.58))
                 .background {
                     RoundedRectangle(cornerRadius: 8, style: .continuous)
-                        .fill(selectedMode == mode ? AnyShapeStyle(AstroTheme.ink) : AnyShapeStyle(Color.clear))
+                        .fill(selectedMode == mode ? AnyShapeStyle(CaptureCueTheme.ink) : AnyShapeStyle(Color.clear))
                 }
             }
         }
@@ -205,7 +205,7 @@ private struct WorkspaceSwitch: View {
         .background(.white.opacity(0.66), in: RoundedRectangle(cornerRadius: 8, style: .continuous))
         .overlay {
             RoundedRectangle(cornerRadius: 8, style: .continuous)
-                .stroke(AstroTheme.line, lineWidth: 1)
+                .stroke(CaptureCueTheme.line, lineWidth: 1)
         }
     }
 }
@@ -220,12 +220,12 @@ private struct CaptureRail: View {
             HStack(spacing: 10) {
                 LogoMark(size: 34)
                 VStack(alignment: .leading, spacing: 1) {
-                    Text("astro-lens")
+                    Text("CaptureCue")
                         .font(.system(size: 15, weight: .bold))
-                        .foregroundStyle(AstroTheme.ink)
+                        .foregroundStyle(CaptureCueTheme.ink)
                     Text("Capture studio")
                         .font(.system(size: 11, weight: .medium))
-                        .foregroundStyle(AstroTheme.ink.opacity(0.46))
+                        .foregroundStyle(CaptureCueTheme.ink.opacity(0.46))
                 }
             }
 
@@ -246,18 +246,18 @@ private struct CaptureRail: View {
                         .font(.system(size: 13, weight: .semibold))
                         .frame(maxWidth: .infinity)
                 }
-                .buttonStyle(AstroSecondaryButtonStyle())
+                .buttonStyle(CaptureCueSecondaryButtonStyle())
             }
 
             VStack(alignment: .leading, spacing: 10) {
                 HStack {
                     Text("Recent")
                         .font(.system(size: 11, weight: .bold))
-                        .foregroundStyle(AstroTheme.ink.opacity(0.52))
+                        .foregroundStyle(CaptureCueTheme.ink.opacity(0.52))
                     Spacer()
                     Text("\(captureStore.recentCaptures.count)")
                         .font(.system(size: 10, weight: .bold))
-                        .foregroundStyle(AstroTheme.ink.opacity(0.38))
+                        .foregroundStyle(CaptureCueTheme.ink.opacity(0.38))
                 }
 
                 if captureStore.recentCaptures.isEmpty {
@@ -287,25 +287,25 @@ private struct CaptureRail: View {
             } label: {
                 HStack(spacing: 10) {
                     Image(systemName: "play.rectangle.fill")
-                        .foregroundStyle(AstroTheme.aqua)
+                        .foregroundStyle(CaptureCueTheme.aqua)
                     VStack(alignment: .leading, spacing: 2) {
                         Text("Studio")
                             .font(.system(size: 12, weight: .bold))
                         Text(store.selectedProject.title)
                             .font(.system(size: 11, weight: .medium))
-                            .foregroundStyle(AstroTheme.ink.opacity(0.50))
+                            .foregroundStyle(CaptureCueTheme.ink.opacity(0.50))
                             .lineLimit(1)
                     }
                     Spacer()
                     Image(systemName: "chevron.right")
                         .font(.system(size: 10, weight: .bold))
-                        .foregroundStyle(AstroTheme.ink.opacity(0.28))
+                        .foregroundStyle(CaptureCueTheme.ink.opacity(0.28))
                 }
                 .padding(12)
                 .background(.white.opacity(0.62), in: RoundedRectangle(cornerRadius: 8, style: .continuous))
                 .overlay {
                     RoundedRectangle(cornerRadius: 8, style: .continuous)
-                        .stroke(selectedMode == .studio ? AstroTheme.aqua.opacity(0.35) : AstroTheme.line, lineWidth: 1)
+                        .stroke(selectedMode == .studio ? CaptureCueTheme.aqua.opacity(0.35) : CaptureCueTheme.line, lineWidth: 1)
                 }
             }
             .buttonStyle(.plain)
@@ -332,11 +332,11 @@ private struct CaptureActionButton: View {
             .frame(height: 62)
         }
         .buttonStyle(.plain)
-        .foregroundStyle(AstroTheme.ink.opacity(0.78))
+        .foregroundStyle(CaptureCueTheme.ink.opacity(0.78))
         .background(.white.opacity(0.64), in: RoundedRectangle(cornerRadius: 8, style: .continuous))
         .overlay {
             RoundedRectangle(cornerRadius: 8, style: .continuous)
-                .stroke(AstroTheme.line, lineWidth: 1)
+                .stroke(CaptureCueTheme.line, lineWidth: 1)
         }
     }
 }
@@ -348,10 +348,10 @@ private struct EmptyRecentCapturesView: View {
         VStack(alignment: .leading, spacing: 10) {
             Image(systemName: "sparkle.magnifyingglass")
                 .font(.system(size: 20, weight: .semibold))
-                .foregroundStyle(AstroTheme.aqua)
+                .foregroundStyle(CaptureCueTheme.aqua)
             Text("Screenshots stay quiet until you need them.")
                 .font(.system(size: 12, weight: .semibold))
-                .foregroundStyle(AstroTheme.ink.opacity(0.72))
+                .foregroundStyle(CaptureCueTheme.ink.opacity(0.72))
                 .fixedSize(horizontal: false, vertical: true)
             Button {
                 Task { await captureStore.captureArea() }
@@ -359,13 +359,13 @@ private struct EmptyRecentCapturesView: View {
                 Label("Capture Area", systemImage: "plus")
                     .frame(maxWidth: .infinity)
             }
-            .buttonStyle(AstroPrimaryButtonStyle(color: AstroTheme.ink))
+            .buttonStyle(CaptureCuePrimaryButtonStyle(color: CaptureCueTheme.ink))
         }
         .padding(12)
         .background(.white.opacity(0.54), in: RoundedRectangle(cornerRadius: 8, style: .continuous))
         .overlay {
             RoundedRectangle(cornerRadius: 8, style: .continuous)
-                .stroke(AstroTheme.line, lineWidth: 1)
+                .stroke(CaptureCueTheme.line, lineWidth: 1)
         }
     }
 }
@@ -390,16 +390,16 @@ private struct CaptureRailRow: View {
                         .lineLimit(1)
                     Text(capture.kind.rawValue)
                         .font(.system(size: 10, weight: .medium))
-                        .foregroundStyle(AstroTheme.ink.opacity(0.42))
+                        .foregroundStyle(CaptureCueTheme.ink.opacity(0.42))
                 }
 
                 Spacer(minLength: 0)
             }
             .padding(8)
-            .background(isSelected ? AstroTheme.aqua.opacity(0.14) : .white.opacity(0.42), in: RoundedRectangle(cornerRadius: 8, style: .continuous))
+            .background(isSelected ? CaptureCueTheme.aqua.opacity(0.14) : .white.opacity(0.42), in: RoundedRectangle(cornerRadius: 8, style: .continuous))
             .overlay {
                 RoundedRectangle(cornerRadius: 8, style: .continuous)
-                    .stroke(isSelected ? AstroTheme.aqua.opacity(0.46) : AstroTheme.line, lineWidth: 1)
+                    .stroke(isSelected ? CaptureCueTheme.aqua.opacity(0.46) : CaptureCueTheme.line, lineWidth: 1)
             }
         }
         .buttonStyle(.plain)
@@ -414,7 +414,7 @@ private struct SnapshotEditorView: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .fill(AstroTheme.stageBackground)
+                .fill(CaptureCueTheme.stageBackground)
 
             if let capture = captureStore.selectedCapture {
                 AnnotationCanvasView(capture: capture, store: captureStore)
@@ -447,7 +447,7 @@ private struct SnapshotEditorView: View {
             RoundedRectangle(cornerRadius: 8, style: .continuous)
                 .stroke(.white.opacity(0.16), lineWidth: 1)
         }
-        .shadow(color: AstroTheme.ink.opacity(0.12), radius: 24, y: 14)
+        .shadow(color: CaptureCueTheme.ink.opacity(0.12), radius: 24, y: 14)
     }
 }
 
@@ -462,7 +462,7 @@ private struct MarkupToolDock: View {
                 } label: {
                     Image(systemName: tool.symbolName)
                 }
-                .buttonStyle(AstroIconButtonStyle(isSelected: captureStore.activeTool == tool))
+                .buttonStyle(CaptureCueIconButtonStyle(isSelected: captureStore.activeTool == tool))
                 .help(tool.rawValue)
             }
 
@@ -474,7 +474,7 @@ private struct MarkupToolDock: View {
             } label: {
                 Image(systemName: "arrow.uturn.backward")
             }
-            .buttonStyle(AstroIconButtonStyle())
+            .buttonStyle(CaptureCueIconButtonStyle())
             .help("Undo")
             .disabled(captureStore.selectedCapture?.annotations.isEmpty ?? true)
 
@@ -483,7 +483,7 @@ private struct MarkupToolDock: View {
             } label: {
                 Image(systemName: "trash")
             }
-            .buttonStyle(AstroIconButtonStyle())
+            .buttonStyle(CaptureCueIconButtonStyle())
             .help("Delete")
             .disabled(captureStore.selectedAnnotationID == nil)
         }
@@ -513,21 +513,21 @@ private struct EditorActionDock: View {
             } label: {
                 Label("Copy", systemImage: "doc.on.doc")
             }
-            .buttonStyle(AstroSecondaryButtonStyle())
+            .buttonStyle(CaptureCueSecondaryButtonStyle())
 
             Button {
                 Task { await captureStore.saveSelectedCapture() }
             } label: {
                 Label("Save", systemImage: "square.and.arrow.down")
             }
-            .buttonStyle(AstroSecondaryButtonStyle())
+            .buttonStyle(CaptureCueSecondaryButtonStyle())
 
             Button {
                 attachSelectedCaptureToStudio()
             } label: {
                 Label("Use in Studio", systemImage: "rectangle.stack.badge.play")
             }
-            .buttonStyle(AstroPrimaryButtonStyle(color: AstroTheme.aqua))
+            .buttonStyle(CaptureCuePrimaryButtonStyle(color: CaptureCueTheme.aqua))
         }
         .padding(10)
         .glassPanel()
@@ -552,18 +552,18 @@ private struct EmptyCaptureState: View {
         VStack(spacing: 18) {
             ZStack {
                 Circle()
-                    .fill(AstroTheme.aqua.opacity(0.18))
+                    .fill(CaptureCueTheme.aqua.opacity(0.18))
                     .frame(width: 74, height: 74)
                 Image(systemName: "camera.viewfinder")
                     .font(.system(size: 30, weight: .semibold))
-                    .foregroundStyle(AstroTheme.aqua)
+                    .foregroundStyle(CaptureCueTheme.aqua)
             }
 
             VStack(spacing: 6) {
                 Text("Capture first. Edit only when it matters.")
                     .font(.system(size: 22, weight: .bold))
                     .foregroundStyle(.white)
-                Text("astro-lens keeps screenshots quiet, then opens a focused markup surface when you ask.")
+                Text("CaptureCue keeps screenshots quiet, then opens a focused markup surface when you ask.")
                     .font(.system(size: 13, weight: .medium))
                     .foregroundStyle(.white.opacity(0.62))
                     .multilineTextAlignment(.center)
@@ -576,14 +576,14 @@ private struct EmptyCaptureState: View {
                 } label: {
                     Label("Capture Area", systemImage: "camera.viewfinder")
                 }
-                .buttonStyle(AstroPrimaryButtonStyle(color: AstroTheme.aqua))
+                .buttonStyle(CaptureCuePrimaryButtonStyle(color: CaptureCueTheme.aqua))
 
                 Button {
                     Task { await captureStore.captureWindow() }
                 } label: {
                     Label("Capture Window", systemImage: "macwindow.on.rectangle")
                 }
-                .buttonStyle(AstroSecondaryButtonStyle())
+                .buttonStyle(CaptureCueSecondaryButtonStyle())
             }
         }
     }
@@ -612,19 +612,19 @@ private struct StudioBottomDock: View {
             if let latestRecordingClip = store.selectedProject.latestRecordingClip {
                 HStack(spacing: 10) {
                     Image(systemName: "video.fill")
-                        .foregroundStyle(AstroTheme.aqua)
+                        .foregroundStyle(CaptureCueTheme.aqua)
                     VStack(alignment: .leading, spacing: 2) {
                         Text("Latest recording")
                             .font(.system(size: 12, weight: .bold))
                         Text(latestRecordingClip.effectiveDuration.formattedDuration)
                             .font(.system(size: 11, weight: .medium, design: .monospaced))
-                            .foregroundStyle(AstroTheme.ink.opacity(0.48))
+                            .foregroundStyle(CaptureCueTheme.ink.opacity(0.48))
                     }
                 }
             } else {
                 Label("Record a clip to start the studio timeline.", systemImage: "sparkles.tv")
                     .font(.system(size: 12, weight: .semibold))
-                    .foregroundStyle(AstroTheme.ink.opacity(0.58))
+                    .foregroundStyle(CaptureCueTheme.ink.opacity(0.58))
             }
 
             Spacer()
@@ -648,13 +648,13 @@ private struct ExportPanel: View {
                     Text(progress.stage)
                 } else if let error = store.exportError {
                     Text(error)
-                        .foregroundStyle(AstroTheme.coral)
+                        .foregroundStyle(CaptureCueTheme.coral)
                 } else {
                     Text(store.exportReadiness.blockingMessage ?? "Ready to export")
                 }
             }
             .font(.system(size: 11, weight: .medium))
-            .foregroundStyle(AstroTheme.ink.opacity(0.48))
+            .foregroundStyle(CaptureCueTheme.ink.opacity(0.48))
             .lineLimit(1)
             .frame(maxWidth: .infinity, alignment: .trailing)
 
@@ -663,7 +663,7 @@ private struct ExportPanel: View {
             } label: {
                 Label(store.isExporting ? "Rendering" : "Export", systemImage: "square.and.arrow.up")
             }
-            .buttonStyle(AstroPrimaryButtonStyle(color: AstroTheme.ink))
+            .buttonStyle(CaptureCuePrimaryButtonStyle(color: CaptureCueTheme.ink))
             .disabled(!store.exportReadiness.canExport || store.isExporting)
         }
     }

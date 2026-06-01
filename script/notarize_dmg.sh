@@ -2,17 +2,17 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-APP_NAME="astro-lens"
+APP_NAME="CaptureCue"
 DIST_DIR="$ROOT_DIR/dist"
 APP_BUNDLE="$DIST_DIR/$APP_NAME.app"
 DMG_PATH="${1:-$DIST_DIR/$APP_NAME.dmg}"
 
 usage() {
   cat >&2 <<USAGE
-usage: $0 [path/to/astro-lens.dmg]
+usage: $0 [path/to/CaptureCue.dmg]
 
 Required credentials, choose one:
-  ASTRO_LENS_NOTARY_KEYCHAIN_PROFILE
+  CAPTURE_CUE_NOTARY_KEYCHAIN_PROFILE
   or APPLE_ID + APPLE_TEAM_ID + APPLE_APP_SPECIFIC_PASSWORD
 USAGE
 }
@@ -30,11 +30,11 @@ echo "Validating app signature..."
 codesign --verify --deep --strict --verbose=2 "$APP_BUNDLE"
 SIGNATURE_DETAILS="$(codesign -dvvv "$APP_BUNDLE" 2>&1)"
 grep -q "Authority=Developer ID Application" <<<"$SIGNATURE_DETAILS" || {
-  echo "astro-lens.app must be signed with a Developer ID Application certificate before notarization." >&2
+  echo "CaptureCue.app must be signed with a Developer ID Application certificate before notarization." >&2
   exit 1
 }
 grep -q "flags=.*runtime" <<<"$SIGNATURE_DETAILS" || {
-  echo "astro-lens.app must be signed with hardened runtime before notarization." >&2
+  echo "CaptureCue.app must be signed with hardened runtime before notarization." >&2
   exit 1
 }
 
@@ -42,9 +42,9 @@ echo "Verifying DMG..."
 hdiutil verify "$DMG_PATH" >/dev/null
 
 echo "Submitting DMG for notarization..."
-if [ -n "${ASTRO_LENS_NOTARY_KEYCHAIN_PROFILE:-}" ]; then
+if [ -n "${CAPTURE_CUE_NOTARY_KEYCHAIN_PROFILE:-}" ]; then
   xcrun notarytool submit "$DMG_PATH" \
-    --keychain-profile "$ASTRO_LENS_NOTARY_KEYCHAIN_PROFILE" \
+    --keychain-profile "$CAPTURE_CUE_NOTARY_KEYCHAIN_PROFILE" \
     --wait
 elif [ -n "${APPLE_ID:-}" ] && [ -n "${APPLE_TEAM_ID:-}" ] && [ -n "${APPLE_APP_SPECIFIC_PASSWORD:-}" ]; then
   xcrun notarytool submit "$DMG_PATH" \

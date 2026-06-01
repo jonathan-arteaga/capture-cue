@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-APP_NAME="astro-lens"
+APP_NAME="CaptureCue"
 DIST_DIR="$ROOT_DIR/dist"
 APP_BUNDLE="${1:-$DIST_DIR/$APP_NAME.app}"
 DMG_PATH="${2:-$DIST_DIR/$APP_NAME.dmg}"
