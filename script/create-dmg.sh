@@ -123,9 +123,9 @@ mkdir -p "${DMG_TEMP}"
 cp -R "${APP_BUNDLE}" "${DMG_TEMP}/"
 ln -s /Applications "${DMG_TEMP}/Applications"
 
-if [ -f "scripts/dmg-background.png" ]; then
+if [ -f "script/dmg-background.png" ]; then
     mkdir -p "${DMG_TEMP}/.background"
-    cp "scripts/dmg-background.png" "${DMG_TEMP}/.background/background.png"
+    cp "script/dmg-background.png" "${DMG_TEMP}/.background/background.png"
 fi
 
 APP_SIZE=$(du -sm "${APP_BUNDLE}" | cut -f1)

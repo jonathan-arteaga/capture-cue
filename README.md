@@ -1,56 +1,62 @@
 <p align="center">
-  <img width="72" alt="CaptureCue app icon" src="https://github.com/user-attachments/assets/ab90875f-4092-4ca9-b475-9a60b9c6445a" />
+  <img src="https://github.com/user-attachments/assets/ab90875f-4092-4ca9-b475-9a60b9c6445a" width="96" alt="CaptureCue logo">
 </p>
 
-# <p align="center">CaptureCue</p>
+<h1 align="center">CaptureCue</h1>
 
-> A minimal macOS capture studio for polished screenshots, demo videos, and GIFs.
+<p align="center">
+  <strong>A minimal macOS capture studio for polished screenshots, demo videos, and GIFs.</strong>
+</p>
 
-CaptureCue is being rebuilt around one simple idea: capture should feel instant,
-quiet, and out of the way, then the editor should help turn the result into a
-clean shareable demo without a heavy production workflow.
+<p align="center">
+  <img alt="macOS 15+" src="https://img.shields.io/badge/macOS%2015%2B-111111">
+  <img alt="Swift" src="https://img.shields.io/badge/Swift-111111">
+  <img alt="Screen Capture" src="https://img.shields.io/badge/Screen%20Capture-111111">
+</p>
 
-## Direction
+<p align="center">
+  <a href="#key-features"><strong>Key Features</strong></a>
+  ·
+  <a href="#how-to-use">How To Use</a>
+  ·
+  <a href="#download">Download</a>
+  ·
+  <a href="#credits">Credits</a>
+  ·
+  <a href="#related">Related</a>
+  ·
+  <a href="#license">License</a>
+</p>
 
-- **Minimal capture launcher:** a lightweight radial capture menu for screenshot,
-  window, area, screen recording, and GIF/demo capture.
-- **Fast demo polish:** cursor zooms, trim, background framing, captions, camera,
-  audio, and export controls focused on quick product demos.
-- **Screenshot utility layer:** annotations, redaction, numbered steps, copy,
-  save, pin, and drag-out export will be folded in from earlier prototypes.
-- **Local-first workflow:** recordings, screenshots, and editing data stay on the
-  Mac by default.
+![CaptureCue screenshot](docs/assets/screenshot.png)
 
-## Current Starting Point
+## Key Features
 
-This baseline is derived from the open-source Reframed macOS recorder/editor and
-has been rebranded as CaptureCue so we can build the final product in one repo.
+- **Fast capture launcher** - Start screenshots, window captures, area captures, recordings, and GIF-oriented demo work from one focused macOS surface.
+- **Demo polish tools** - Prepare shareable clips with cursor emphasis, trim controls, backgrounds, captions, camera, audio, and export settings.
+- **Screenshot utility layer** - Fold annotation, redaction, numbered steps, copy, save, pin, and drag-out export into the same product direction.
+- **Local-first workflow** - Keep recordings, screenshots, and project data on the Mac by default.
 
-The next major product task is replacing the existing toolbar-style capture
-entry with CaptureCue's radial launcher and trimming the editor down to the
-features that support fast polished demos.
-
-## Requirements
-
-- macOS 15.0 or later
-- Screen Recording permission
-- Accessibility permission
-- Microphone permission for voice capture
-- Camera permission for webcam overlay
-
-## Build
+## How To Use
 
 ```bash
 make build
-```
-
-Run a local debug build:
-
-```bash
 make dev
 ```
 
-## Attribution
+## Download
 
-CaptureCue starts from Reframed by Jan Kuri. See `NOTICE.md` and `LICENSE` for
-upstream attribution and license details.
+No packaged public download is published from this repo yet. Build locally from source while the CaptureCue baseline is being rebuilt.
+
+## Credits
+
+CaptureCue starts from Reframed by Jan Kuri. See `NOTICE.md` and `LICENSE` for upstream attribution and license details.
+
+## Related
+
+- [MarkView](https://github.com/jonathan-arteaga/mark-view)
+- [MouseKit](https://github.com/jonathan-arteaga/mouse-kit)
+
+## License
+
+See `LICENSE`.

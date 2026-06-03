@@ -7,16 +7,16 @@ CaptureCue is a macOS screen recording app targeting macOS 15+, built with Swift
 ```
 CaptureCue/
 ├── App/              AppDelegate, Permissions, WindowController
-├── CaptureModes/     Area/Screen/Window/Device selection + shared overlay components
-├── Compositor/       Video composition and export pipeline
-├── Editor/           Video editor (timeline, properties, preview, cursor, zoom, camera regions)
-├── Libraries/        Native C/C++ dependencies (gifski for GIF encoding)
-├── Logging/          LogBootstrap, RotatingFileLogHandler
-├── Project/          .frm bundle management
-├── Recording/        Capture pipeline (coordinators, writers, devices, cursor metadata)
-├── State/            SessionState, CaptureState, ConfigService, StateService, KeyboardShortcutManager
-├── UI/               Toolbar, menu bar, popovers, settings, reusable components
-├── Utilities/        Extensions, helpers, encoding settings, sound effects
+├── Features/
+│   ├── CaptureModes/ Area/Screen/Window/Device selection + shared overlay components
+│   ├── Compositor/   video composition and export
+│   ├── Editor/       timeline, properties, and preview
+│   └── Recording/    capture pipeline and writers
+├── Models/           .frm bundle management
+├── Resources/        Assets and bundled credits
+├── Stores/           SessionState, CaptureState, ConfigService, StateService, KeyboardShortcutManager
+├── DesignSystem/     Toolbar, menu bar, popovers, settings, reusable components
+├── Support/          Logging, native libraries, extensions, helpers, and encoding utilities
 └── CaptureCueApp.swift Entry point
 ```
 
@@ -46,7 +46,7 @@ Everything is actor-isolated. There are no shared mutable globals and no manual 
 
 CVPixelBuffer isn't Sendable. The codebase passes them using `nonisolated(unsafe)` with local captures in `@Sendable` closures, scoped so the buffer's lifetime is controlled.
 
-For other non-Sendable types like AVCaptureSession, there's a `SendableBox<T>` utility wrapper in `Utilities/`.
+For other non-Sendable types like AVCaptureSession, there's a `SendableBox<T>` utility wrapper in `Support/Utilities/`.
 
 The general pattern: `@MainActor` code calls `await coordinator.method()` to reach actors. Actors call `await MainActor.run { ... }` when they need to push state back to the UI.
 

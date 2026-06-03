@@ -24,10 +24,10 @@ dev: build
 	@open $(DEBUG_DIR)/$(APP_NAME).app
 
 dmg: release
-	@./scripts/create-dmg.sh
+	@./script/create-dmg.sh
 
 dmg-release: release
-	@./scripts/create-dmg.sh --sign "$(CAPTURECUE_SIGNING_IDENTITY)" --notarize
+	@./script/create-dmg.sh --sign "$(CAPTURECUE_SIGNING_IDENTITY)" --notarize
 
 install: uninstall release
 	@cp -rf $(RELEASE_DIR)/$(APP_NAME).app /Applications/
@@ -44,13 +44,13 @@ tag:
 	@$(MAKE) changelog
 
 changelog:
-	@./scripts/changelog.sh --unreleased
+	@./script/changelog.sh --unreleased
 
 appcast:
-	@./scripts/generate-appcast.sh
+	@./script/generate-appcast.sh
 
 publish: tag dmg-release appcast
-	@./scripts/publish-release.sh
+	@./script/publish-release.sh
 
 format:
 	@swift format -i -r CaptureCue/

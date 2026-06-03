@@ -268,7 +268,7 @@
 		34DD091866B47680E34A452B /* SessionState+Project.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "SessionState+Project.swift"; sourceTree = "<group>"; };
 		3596F81A6E600975B1EB8104 /* EditorState+Cursor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditorState+Cursor.swift"; sourceTree = "<group>"; };
 		3CFD921258364EA6A604537F /* CaptureTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureTarget.swift; sourceTree = "<group>"; };
-		3DCA03E02F3B511C003FE309 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3DCA03E02F3B511C003FE309 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Resources/Assets.xcassets; sourceTree = "<group>"; };
 		4016F798AD537E3A9A1EB1F0 /* EditorState+Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditorState+Project.swift"; sourceTree = "<group>"; };
 		414D0B4B5049DED5527EE523 /* MenuBarComponents.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MenuBarComponents.swift; sourceTree = "<group>"; };
 		496C1D98B8AB2982DF4AA7D4 /* ExportSheet+Phases.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "ExportSheet+Phases.swift"; sourceTree = "<group>"; };
@@ -288,7 +288,7 @@
 		9923C0FB109E2815848A7457 /* TimelineView+Ruler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "TimelineView+Ruler.swift"; sourceTree = "<group>"; };
 		A204316B5FA59D98E694D332 /* SelectionOverlayView+Resize.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "SelectionOverlayView+Resize.swift"; sourceTree = "<group>"; };
 		A435021272D7425AB77F93DF /* WindowSelectionOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowSelectionOverlay.swift; sourceTree = "<group>"; };
-		AA0000000000000000000002 /* Credits.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = Credits.html; sourceTree = "<group>"; };
+		AA0000000000000000000002 /* Credits.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = Resources/Credits.html; sourceTree = "<group>"; };
 		AB3EC8A715AE3B8203B0B61E /* VideoPreviewView+Transitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VideoPreviewView+Transitions.swift"; sourceTree = "<group>"; };
 		AFB8530E54B2C3F5B4C5C547 /* VideoPreviewContainer+Webcam.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "VideoPreviewContainer+Webcam.swift"; sourceTree = "<group>"; };
 		B10000000000000000000001 /* CaptureCueApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureCueApp.swift; sourceTree = "<group>"; };
@@ -566,7 +566,7 @@
 				B10000000000000000000004 /* LogBootstrap.swift */,
 				B10000000000000000000005 /* RotatingFileLogHandler.swift */,
 			);
-			path = Logging;
+			path = Support/Logging;
 			sourceTree = "<group>";
 		};
 		D10000000000000000000005 /* State */ = {
@@ -587,7 +587,7 @@
 				34DD091866B47680E34A452B /* SessionState+Project.swift */,
 				6BE6D512A7F588ED67F16A77 /* SessionState+WindowInfo.swift */,
 			);
-			path = State;
+			path = Stores;
 			sourceTree = "<group>";
 		};
 		D10000000000000000000008 /* Recording */ = {
@@ -617,7 +617,7 @@
 				F8881A46BBB4614D3C430CF0 /* RecordingCoordinator+Device.swift */,
 				2630C23881313B30C965A75A /* RecordingCoordinator+Lifecycle.swift */,
 			);
-			path = Recording;
+			path = Features/Recording;
 			sourceTree = "<group>";
 		};
 		D10000000000000000000009 /* Utilities */ = {
@@ -644,7 +644,7 @@
 				FB10000000000000000000B2 /* LenientCodable.swift */,
 				B2VE00000000000000000001 /* EncodingSettings.swift */,
 			);
-			path = Utilities;
+			path = Support/Utilities;
 			sourceTree = "<group>";
 		};
 		D1000000000000000000000A /* Frameworks */ = {
@@ -715,7 +715,7 @@
 				815C681612F3844727C988EF /* CaptureToolbar+ModeSelection.swift */,
 				6B4535D89EAC6F65D82BC248 /* CaptureToolbar+Controls.swift */,
 			);
-			path = UI;
+			path = DesignSystem;
 			sourceTree = "<group>";
 		};
 		D1000000000000000000000D /* CaptureModes */ = {
@@ -726,7 +726,7 @@
 				D10000000000000000000010 /* CaptureScreen */,
 				D10000000000000000000011 /* CaptureWindow */,
 			);
-			path = CaptureModes;
+			path = Features/CaptureModes;
 			sourceTree = "<group>";
 		};
 		D1000000000000000000000E /* Common */ = {
@@ -856,7 +856,7 @@
 				15FC8EFFF8F25B538B770019 /* ZoomKeyframeEditor+RegionView.swift */,
 				EB80B289E404CFF82DC2A109 /* History+ChangeRules.swift */,
 			);
-			path = Editor;
+			path = Features/Editor;
 			sourceTree = "<group>";
 		};
 		D30000000000000000000001 /* Project */ = {
@@ -865,7 +865,7 @@
 				B3000000000000000000001B /* CaptureCueProject.swift */,
 				B3000000000000000000001C /* ProjectMetadata.swift */,
 			);
-			path = Project;
+			path = Models/Project;
 			sourceTree = "<group>";
 		};
 		D40000000000000000000001 /* Compositor */ = {
@@ -900,7 +900,7 @@
 				CA20000000000000000000B1 /* FrameRenderer+Helpers.swift */,
 				496C1D98B8AB2982DF4AA7D4 /* ExportSheet+Phases.swift */,
 			);
-			path = Compositor;
+			path = Features/Compositor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1375,7 +1375,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/CaptureCue/Libraries/gifski";
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/CaptureCue/Support/Libraries/gifski";
 				OTHER_LDFLAGS = "-lgifski";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jonathanarteaga.capturecue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1386,7 +1386,7 @@
 				RUNTIME_EXCEPTION_DISABLE_EXECUTABLE_PAGE_PROTECTION = NO;
 				RUNTIME_EXCEPTION_DISABLE_LIBRARY_VALIDATION = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/CaptureCue/Libraries/gifski";
+				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/CaptureCue/Support/Libraries/gifski";
 				SWIFT_VERSION = 6.0;
 			};
 			name = Debug;
@@ -1420,7 +1420,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/CaptureCue/Libraries/gifski";
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/CaptureCue/Support/Libraries/gifski";
 				OTHER_LDFLAGS = "-lgifski";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jonathanarteaga.capturecue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1431,7 +1431,7 @@
 				RUNTIME_EXCEPTION_DISABLE_EXECUTABLE_PAGE_PROTECTION = NO;
 				RUNTIME_EXCEPTION_DISABLE_LIBRARY_VALIDATION = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/CaptureCue/Libraries/gifski";
+				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/CaptureCue/Support/Libraries/gifski";
 				SWIFT_VERSION = 6.0;
 			};
 			name = Release;
